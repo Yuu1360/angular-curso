@@ -13,7 +13,9 @@
             <form
                 class="form-horizontal form-material"
                 id="loginform"
-                (submit)="login()"
+                autocomplete="off"
+                [formGroup]="loginForm"
+                (ngSubmit)="login()"
             >
                 <a href="javascript:void(0)" class="text-center db"
                     ><img
@@ -29,6 +31,7 @@
                             type="text"
                             required=""
                             placeholder="Username"
+                            formControlName="username"
                         />
                     </div>
                 </div>
@@ -39,6 +42,7 @@
                             type="password"
                             required=""
                             placeholder="Password"
+                            formControlName="password"
                         />
                     </div>
                 </div>
@@ -49,6 +53,7 @@
                                 id="checkbox-signup"
                                 type="checkbox"
                                 class="filled-in chk-col-light-blue"
+                                formControlName="remember"
                             />
                             <label for="checkbox-signup"> Remember me </label>
                         </div>
@@ -103,9 +108,7 @@
                 <div class="form-group m-b-0">
                     <div class="col-sm-12 text-center">
                         Don't have an account?
-                        <a
-                            href="pages-register2.html"
-                            class="text-primary m-l-5"
+                        <a routerLink="/register" class="text-primary m-l-5"
                             ><b>Sign Up</b></a
                         >
                     </div>
